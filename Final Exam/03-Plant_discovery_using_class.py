@@ -2,21 +2,21 @@ class Plant:
     def __init__(self, plant, rarity):
         self.plant = plant
         self.rarity = rarity
-        self.ratings = []
+        self.__ratings = []
 
     def rate(self, rating):
-        self.ratings.append(rating)
+        self.__ratings.append(rating)
 
     def update_rarity(self, new_rarity):
         self.rarity = new_rarity
 
     def delete_ratings(self):
-        self.ratings.clear()
+        self.__ratings.clear()
 
     def get_avg_ratings(self):
-        if not self.ratings:
+        if not self.__ratings:
             return 0
-        return sum(self.ratings) / len(self.ratings)
+        return sum(self.__ratings) / len(self.__ratings)
 
     def __repr__(self):
         return f'- {self.plant}; Rarity: {self.rarity}; Rating: {self.get_avg_ratings():.2f}'
